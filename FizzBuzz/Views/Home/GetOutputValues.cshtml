@@ -1,0 +1,22 @@
+﻿@model FizzBuzz.Models.GivenValues
+@{
+    ViewBag.Title = "GetOutputValues";
+}
+
+<div>
+    <table>
+        <tr>
+            <td>Output: @if (Model != null && Model.OutPutValues != null)
+                        {
+                            foreach (var outPutValue in Model.OutPutValues)
+                            {
+                                <tr>
+                                <td>@Html.Label(outPutValue)</td>
+                                </tr>
+                            }
+                        }
+            </td>
+        </tr>
+    </table>
+</div>
+

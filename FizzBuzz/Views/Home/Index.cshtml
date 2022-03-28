@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+@model FizzBuzz.Models.GivenValues
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<html>
+<head>
+    <title>Fizz Buzz Application</title>
+    <style>
+        #center-div {
+            position: absolute;
+            left: 40%;
+            top: 40%;
+            border: 1px solid #ccc;
+            padding: 10px 10px
+        }
+        #spaceUnder {
+            padding-bottom: 1em;
+        }
+    </style>
+</head>
+<body>
+    <div id="center-div">
+        @using (Html.BeginForm("GetOutputValues", "Home", FormMethod.Post))
+        {
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <table>
+                <tr>
+                    <td>
+                        @Html.LabelFor(model => model.InputValues) :
+                    </td>
+                    <td>
+                        @Html.EditorFor(model => model.InputValues)
+                        @Html.ValidationMessageFor(model => model.InputValues, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
+                <tr>
+                    <td> </td>
+                    <td><input type="submit" name="Output" value="Check Ouput" /></td>
+                </tr>
+            </table>
+        }
+    </div>
+</body>
+</html>
